@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import "./app.css";
 
-const submitInputs = (setMemeText) => {
+const submitInputs = (setterFunction) => {
   const firstInput = document.getElementById('firstInput').value; 
   const secondInput = document.getElementById('secondInput').value; 
+  setterFunction({ firstText: firstInput, secondText: secondInput });
 };
 
 export default () => {
@@ -11,7 +12,7 @@ export default () => {
   const [currentMeme, setCurrentMeme] = useState();
   const [memeText, setMemeText] = useState({
     firstText: "",
-    secondText: "";
+    secondText: "",
   });
   useEffect(() => {
     fetch("https://api.imgflip.com/get_memes")
@@ -27,12 +28,14 @@ return (
   <div>
     <input id="firstInput" placeholder="First Text" type="text" />
     <input id="secondInput" placeholder="Second Text" type="text" />
-    <button onClick={(e) => submitInputs(setMemeText)}>Generate Meme Text</button>
+    <button onClick={(e) => submitInputs(setMemeText)}>
+      Generate Meme Text
+      </button>
     {currentMeme ? (
       <div id="memeContainer">
         <img id="memeImage" src={currentMeme.url} /> 
-        <span id="firstText">I am the first text</span>
-        <span id="secondText">I am the second text</span>
+    <span id="firstText">{memeText.firstText}</span>
+    <span id="secondText">{memeText.secondText}</span>
       </div>
     ) : null}
   </div> 
