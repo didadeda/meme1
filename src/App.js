@@ -31,11 +31,24 @@ return (
     <button onClick={(e) => submitInputs(setMemeText)}>
       Generate Meme Text
       </button>
+      <button onClick={() => {
+       const currentIndex = memes.indexOf(currentMeme);
+       if(currentIndex > 0) setCurrentMeme(memes[currentIndex - 1]);
+       else alert("go next");
+      }}>Previous</button>
+      <button onClick={() => {
+        const currentIndex = memes.indexOf(currentMeme);
+        if(currentIndex < memes.length-1) setCurrentMeme(memes[currentIndex + 1]);
+        else alert("take a break");
+      }}>Next</button>
+      <button onClick={() => {
+        setCurrentMeme(memes[Math.floor(Math.random() * memes.lenth)]);
+      }}>Random meme</button>
     {currentMeme ? (
       <div id="memeContainer">
         <img id="memeImage" src={currentMeme.url} /> 
-    <span id="firstText">{memeText.firstText}</span>
-    <span id="secondText">{memeText.secondText}</span>
+        <span id="firstText">{memeText.firstText}</span>
+        <span id="secondText">{memeText.secondText}</span>
       </div>
     ) : null}
   </div> 
