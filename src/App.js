@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import "./app.css";
 
 export default () => {
   const [memes, setMemes] = useState([]);
@@ -15,11 +16,13 @@ export default () => {
 
 return (
   <div>
-    {currentMeme? (
-      <img src={currentMeme.url}/>
-    ) : (
-    <img src={"https://via.placeholder.com/150"} />
-    )}
-  </div>
+    {currentMeme ? (
+      <div id="memeContainer">
+        <img id="memeImage" src={currentMeme.url} /> 
+        <span id="firstText">I am the first text</span>
+        <span id="secondText">I am the second text</span>
+      </div>
+    ) : null}
+  </div> 
   );
 };
