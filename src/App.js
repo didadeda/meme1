@@ -1,6 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import "./app.css";
 
+const submitInputs = () => {
+  const firstInput = document.getElementById('firstInput').value 
+  const secondInput = document.getElementById('secondInput').value 
+};
+
 export default () => {
   const [memes, setMemes] = useState([]);
   const [currentMeme, setCurrentMeme] = useState();
@@ -16,6 +21,9 @@ export default () => {
 
 return (
   <div>
+    <input id="firstInput" placeholder="First Text" type="text" />
+    <input id="secondInput" placeholder="Second Text" type="text" />
+    <button onClick={(e) => submitInputs}>Generate Meme Text</button>
     {currentMeme ? (
       <div id="memeContainer">
         <img id="memeImage" src={currentMeme.url} /> 

@@ -1,24 +1,25 @@
 #memeContainer {
  position: relative;
- text-align: center;   
+ text-align: center;
+ color: black;
+ font-size: x-large;
+ font-weight: bold; 
 }
 
 #memeImage {
     width: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-    
 }
 
 #firstText {
     position: absolute;
-    top: 5;
-    left: 5;
+    top: 5px;
+    left: 1000px;
+    transform: translateX(-50%);
 }
 
 #secondText {
     position: absolute;
-    bottom: 5;
-    left: 5;
+    bottom: 5px;
+    left: 1000px;
+    transform: translateX(-50%);
 }
